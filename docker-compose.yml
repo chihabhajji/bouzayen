@@ -1,0 +1,16 @@
+version: '3.9'
+
+name: tncritic-stack
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_USER: "${DB_USERNAME}"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres-data:
